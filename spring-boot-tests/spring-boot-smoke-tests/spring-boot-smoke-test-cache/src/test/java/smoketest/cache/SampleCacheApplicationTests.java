@@ -35,7 +35,7 @@ class SampleCacheApplicationTests {
 	private CountryRepository countryRepository;
 
 	@Test
-	void validateCache() {
+	void validateCache() throws InterruptedException {
 		Cache countries = this.cacheManager.getCache("countries");
 		assertThat(countries).isNotNull();
 		countries.clear(); // Simple test assuming the cache is empty

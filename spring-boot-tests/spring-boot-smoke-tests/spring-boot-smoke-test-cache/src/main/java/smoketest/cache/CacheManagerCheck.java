@@ -20,6 +20,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Component;
 
@@ -32,6 +33,12 @@ public class CacheManagerCheck implements CommandLineRunner {
 
 	public CacheManagerCheck(CacheManager cacheManager) {
 		this.cacheManager = cacheManager;
+	}
+
+	public Cache a( ) {
+		Cache countries = cacheManager.getCache("countries");
+		System.out.println(countries);
+		return countries;
 	}
 
 	@Override

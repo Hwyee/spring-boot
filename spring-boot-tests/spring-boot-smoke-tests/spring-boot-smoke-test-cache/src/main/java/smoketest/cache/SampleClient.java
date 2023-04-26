@@ -20,6 +20,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+import jakarta.annotation.Resource;
+import org.springframework.cache.Cache;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -52,12 +54,17 @@ class SampleClient {
 		this.countryService = countryService;
 		this.random = new Random();
 	}
-
+	@Resource
+	private CacheManagerCheck cacheManagerCheck;
 	@Scheduled(fixedDelay = 500)
 	void retrieveCountry() {
 		String randomCode = SAMPLE_COUNTRY_CODES.get(this.random.nextInt(SAMPLE_COUNTRY_CODES.size()));
 		System.out.println("Looking for country with code '" + randomCode + "'");
 		this.countryService.findByCode(randomCode);
+		Cache a = cacheManagerCheck.a();
+		Cache.ValueWrapper valueWrapper = a.get(randomCode);
+		Country country = a.get(randomCode, Country.class);
+		System.out.println(country);
 	}
 
 }

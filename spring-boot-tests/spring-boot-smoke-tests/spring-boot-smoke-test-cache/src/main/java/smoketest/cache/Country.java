@@ -50,4 +50,8 @@ public class Country implements Serializable {
 		return this.code.hashCode();
 	}
 
+	@Override
+	public String toString(){
+		return "您的Country是:" + this.code;
+	}
 }

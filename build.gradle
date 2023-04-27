@@ -28,6 +28,11 @@ allprojects {
 	group "org.springframework.boot"
 
 	repositories {
+		maven {url "https://maven.aliyun.com/repository/apache-snapshots"}
+		maven {url "https://maven.aliyun.com/repository/central"}
+		maven {url "https://maven.aliyun.com/repository/google"}
+		maven {url "https://maven.aliyun.com/repository/spring"}
+		maven {url "https://maven.aliyun.com/repository/spring-plugin"}
 		mavenCentral()
 		if (version.contains('-')) {
 			maven { url "https://repo.spring.io/milestone" }
@@ -35,11 +40,7 @@ allprojects {
 		if (version.endsWith('-SNAPSHOT')) {
 			maven { url "https://repo.spring.io/snapshot" }
 		}
-		maven {url "https://maven.aliyun.com/repository/apache-snapshots"}
-		maven {url "https://maven.aliyun.com/repository/central"}
-		maven {url "https://maven.aliyun.com/repository/google"}
-		maven {url "https://maven.aliyun.com/repository/spring"}
-		maven {url "https://maven.aliyun.com/repository/spring-plugin"}
+
 	}
 
 	configurations.all {

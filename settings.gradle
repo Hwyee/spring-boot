@@ -1,5 +1,10 @@
 pluginManagement {
 	repositories {
+		maven {url "https://maven.aliyun.com/repository/apache-snapshots"}
+		maven {url "https://maven.aliyun.com/repository/central"}
+		maven {url "https://maven.aliyun.com/repository/google"}
+		maven {url "https://maven.aliyun.com/repository/spring"}
+		maven {url "https://maven.aliyun.com/repository/spring-plugin"}
 		mavenCentral()
 		gradlePluginPortal()
 		if (version.endsWith('-SNAPSHOT')) {
